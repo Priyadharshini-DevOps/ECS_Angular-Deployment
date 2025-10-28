@@ -1,6 +1,5 @@
 version: 0.2
 phases:
-<<<<<<< HEAD
   pre_build:
     commands:
       - echo ${DOCKERHUB_TOKEN} | docker login -u ${DOCKERHUB_USER} --password-stdin
@@ -11,22 +10,3 @@ phases:
     commands:
       - docker tag my-angular-app:latest ${DOCKERHUB_USER}/my-angular-app:latest
       - docker push ${DOCKERHUB_USER}/my-angular-app:latest
-=======
-  install:
-    runtime-versions:
-      nodejs: 20
-    commands:
-      - npm install -g @angular/cli@17
-  pre_build:
-    commands:
-      - npm install
-  build:
-    commands:
-      - ng build -c production
-artifacts:
-  files:
-    - 'dist/my-angular-project/**/*'
-    - 'appspec.yml'
-    - 'deploy-scripts/**/*'
-  discard-paths: no
->>>>>>> dee51eed38d36ac5d7707f3b7af15d9cd66f156d
